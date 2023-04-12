@@ -183,6 +183,17 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.xr.openxr": {
+      "version": "1.6.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.management": "4.0.1",
+        "com.unity.xr.legacyinputhelpers": "2.1.2",
+        "com.unity.inputsystem": "1.4.4"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.valvesoftware.unity.openvr": {
       "version": "file:../Assets/SteamVR/OpenVRUnityXRPackage/Editor/com.valvesoftware.unity.openvr-1.1.4.tgz",
       "depth": 0,
@@ -300,6 +311,15 @@
       },
       "url": "https://registry.npmjs.org"
     },
+    "io.extendreality.tilia.sdk.steamvr.unity": {
+      "version": "2.2.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "io.extendreality.zinnia.unity": "2.10.0"
+      },
+      "url": "https://registry.npmjs.org"
+    },
     "io.extendreality.tilia.trackers.pseudobody.unity": {
       "version": "2.1.42",
       "depth": 0,
@@ -316,6 +336,17 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
+    "io.extendreality.tilia.visuals.basichand.unity": {
+      "version": "2.4.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "io.extendreality.zinnia.unity": "2.10.0",
+        "io.extendreality.tilia.utilities.shaders.unity": "1.3.1",
+        "io.extendreality.tilia.mutators.objectfollower.unity": "2.0.13"
+      },
       "url": "https://registry.npmjs.org"
     },
     "io.extendreality.tilia.visuals.interactablehighlighter.unity": {
