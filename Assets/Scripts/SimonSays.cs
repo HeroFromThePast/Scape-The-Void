@@ -44,7 +44,7 @@ public class SimonSays : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ray =
+        /*ray =
           Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0))
@@ -101,7 +101,7 @@ public class SimonSays : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
 
     public void checkbutton(int buttonIndex)
@@ -140,7 +140,7 @@ public class SimonSays : MonoBehaviour
         }
     }
 
-    IEnumerator PlaySequence()
+  public  IEnumerator PlaySequence()
     {
         yield return new WaitForSeconds(0.3f);
 
@@ -193,7 +193,7 @@ public class SimonSays : MonoBehaviour
     }
 
 
-    IEnumerator PlaySequencePressed(int i)
+   public IEnumerator PlaySequencePressed(int i)
     {
         yield return new WaitForSeconds(0.3f);
 
