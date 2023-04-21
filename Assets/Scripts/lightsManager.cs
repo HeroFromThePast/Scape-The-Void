@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class lightsManager : MonoBehaviour
 {
-    public List<GameObject> lampList;
-    bool On = false;
+    public GameObject listaLuces;
+    private bool On;
     // Start is called before the first frame update
     void Start()
     {
-        
+        On = false;
     }
 
     // Update is called once per frame
@@ -18,23 +18,26 @@ public class lightsManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.L))
         {
             On = !On;
+            Debug.Log(On.ToString());
         }
+
+      
 
         if(On==true)
         {
             Light light = new Light();
-            foreach(GameObject i in lampList)
+            for(int i=0;i<listaLuces.transform.childCount;i++)
             {
-                light = i.transform.GetChild(0).GetComponent<Light>();
+                light = listaLuces.transform.GetChild(i).GetChild(0).GetComponent<Light>();
                 light.enabled = true;
             }
         }
         else
         {
             Light light = new Light();
-            foreach (GameObject i in lampList)
+            for (int i = 0; i < listaLuces.transform.childCount; i++)
             {
-                light = i.transform.GetChild(0).GetComponent<Light>();
+                light = listaLuces.transform.GetChild(i).GetChild(0).GetComponent<Light>();
                 light.enabled = false;
             }
         }
