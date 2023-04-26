@@ -15,7 +15,7 @@ public class PuzzleLightsManager : MonoBehaviour
     bool cicle1 = true;
     bool cicle1win = false;
     public float velocidadParte1;
-
+    bool cambiocorrtinas = false;
     bool cicle2 = true;
     bool cicle2win = false;
     public float velocidadParte2;
@@ -44,19 +44,35 @@ public class PuzzleLightsManager : MonoBehaviour
             {
                 if (cicle1 == true)
                 {
-                    StartCoroutine(parte1cicle());
+                    if (cambiocorrtinas == false)
+                    {
+                        cambiocorrtinas = true;
+                        StartCoroutine(parte1cicle());
+                        StopCoroutine(parte1cicle());
+                    }
                 }
                 else
                 {
-                    StartCoroutine(endcicle1());
-
+                    if (cambiocorrtinas == false)
+                    {
+                        cambiocorrtinas = true;
+                        StartCoroutine(endcicle1());
+                        StopCoroutine(endcicle1());
+                    }
                 }
 
             }
             else
             {
-                StartCoroutine(wincicle1());
-                puntosGanados++;
+                if (cambiocorrtinas == false)
+                {
+                    cambiocorrtinas = true;
+                    StopCoroutine(parte1cicle());
+                    StopCoroutine(endcicle1());
+                    StartCoroutine(wincicle1());
+                    StopCoroutine(wincicle1());
+                    puntosGanados++;
+                }
             }
 
 
@@ -68,25 +84,37 @@ public class PuzzleLightsManager : MonoBehaviour
             {
                 if (cicle2 == true)
                 {
-                   
-             
+
+                    if (cambiocorrtinas == false)
+                    {
+                        cambiocorrtinas = true;
                         StartCoroutine(parte2cicle());
-                        
-                   
+                        StopCoroutine(parte2cicle());
+                    }
                 }
                 else
                 {
-                    StartCoroutine(endcicle2());
-                    
+                    if (cambiocorrtinas == false)
+                    {
+                        cambiocorrtinas = true;
+                        StartCoroutine(endcicle2());
+                        StopCoroutine(endcicle2());
+                    }
 
                 }
 
             }
             else
             {
-                
-                StartCoroutine(wincicle2());
-                puntosGanados++;
+                if (cambiocorrtinas == false)
+                {
+                    cambiocorrtinas = true;
+                    StopCoroutine(parte2cicle());
+                    StopCoroutine(endcicle2());
+                    StartCoroutine(wincicle2());
+                    StopCoroutine(wincicle2());
+                    puntosGanados++;
+                }
             }
 
 
@@ -99,14 +127,22 @@ public class PuzzleLightsManager : MonoBehaviour
                 if (cicle3 == true)
                 {
 
-
-                    StartCoroutine(parte3cicle());
-
+                    if (cambiocorrtinas == false)
+                    {
+                        cambiocorrtinas = true;
+                        StartCoroutine(parte3cicle());
+                        StopCoroutine(parte3cicle());
+                    }
 
                 }
                 else
                 {
-                    StartCoroutine(endcicle3());
+                    if (cambiocorrtinas == false)
+                    {
+                        cambiocorrtinas = true;
+                        StartCoroutine(endcicle3());
+                        StopCoroutine(endcicle3());
+                    }
 
 
                 }
@@ -114,9 +150,15 @@ public class PuzzleLightsManager : MonoBehaviour
             }
             else
             {
-
-                StartCoroutine(wincicle3());
-                puntosGanados++;
+                if (cambiocorrtinas == false)
+                {
+                    cambiocorrtinas = true;
+                    StopCoroutine(parte3cicle());
+                    StopCoroutine(endcicle3());
+                    StartCoroutine(wincicle3());
+                    
+                    puntosGanados++;
+                }
             }
 
 
@@ -157,16 +199,7 @@ public class PuzzleLightsManager : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-
-            Debug.Log(tiempo.ToString());
-
-        }
-       if(Input.GetKeyDown(KeyCode.Space ))
-        {
-
-        }
+       
     }
 
     private void Ganaste()
@@ -204,9 +237,10 @@ public class PuzzleLightsManager : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
         cicle1 = false;
+        cambiocorrtinas = false;
       
     }
-
+    
 
    
 
@@ -223,7 +257,8 @@ public class PuzzleLightsManager : MonoBehaviour
         }
         cicle1 = true;
         tiempo = 0;
-     
+        cambiocorrtinas = false;
+
 
 
     }
@@ -262,6 +297,7 @@ public class PuzzleLightsManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         cicle2 = false;
+        cambiocorrtinas = false;
 
     }
 
@@ -281,6 +317,7 @@ public class PuzzleLightsManager : MonoBehaviour
         }
         cicle2 = true;
         tiempo = 0;
+        cambiocorrtinas = false;
 
 
 
@@ -290,7 +327,7 @@ public class PuzzleLightsManager : MonoBehaviour
 
     {
         yield return StartCoroutine(wincicle2());
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         bool cambio = true;
         for (int i = 0; i < parte3.transform.childCount && cambio == true; i++)
         {
@@ -319,9 +356,9 @@ public class PuzzleLightsManager : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(1f);
+        
         cicle3 = false;
-
+        cambiocorrtinas = false;
     }
 
 
@@ -329,7 +366,7 @@ public class PuzzleLightsManager : MonoBehaviour
 
     public IEnumerator endcicle3()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         for (int i = parte3.transform.childCount - 1; i >= 0; i--)
         {
             yield return new WaitForSeconds(velocidadParte3);
@@ -340,7 +377,7 @@ public class PuzzleLightsManager : MonoBehaviour
         }
         cicle3 = true;
         tiempo = 0;
-
+        cambiocorrtinas = false;
 
 
     }
@@ -356,7 +393,7 @@ public class PuzzleLightsManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
 
         }
-
+        cambiocorrtinas = false;
 
     }
     public IEnumerator wincicle2()
@@ -374,14 +411,14 @@ public class PuzzleLightsManager : MonoBehaviour
 
         }
 
-
+        cambiocorrtinas = false;
     }
 
     public IEnumerator wincicle3()
 
     {
 
-        yield return StartCoroutine(parte3cicle());
+        yield return new WaitForSeconds( velocidadParte3 * parte3.transform.childCount*5); ;
 
         for (int i = 0; i < parte3.transform.childCount; i++)
         {
@@ -392,7 +429,7 @@ public class PuzzleLightsManager : MonoBehaviour
 
         }
 
-
+        cambiocorrtinas = false;
     }
 
     public void oprimirboton()
