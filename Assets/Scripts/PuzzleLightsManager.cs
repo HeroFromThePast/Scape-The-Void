@@ -209,7 +209,7 @@ public class PuzzleLightsManager : MonoBehaviour
 
     private void Ganaste()
     {
-        ganaste.SetActive(true);
+        Debug.Log("Ganaste");
     }
 
     public IEnumerator parte1cicle()
