@@ -46,18 +46,22 @@ public class PuzzleLightsManager : MonoBehaviour
                 {
                     if (cambiocorrtinas == false)
                     {
+           
+                      
                         cambiocorrtinas = true;
                         StartCoroutine(parte1cicle());
-                        StopCoroutine(parte1cicle());
+                       
                     }
                 }
                 else
                 {
                     if (cambiocorrtinas == false)
                     {
+                       
+                       
                         cambiocorrtinas = true;
                         StartCoroutine(endcicle1());
-                        StopCoroutine(endcicle1());
+           
                     }
                 }
 
@@ -67,8 +71,7 @@ public class PuzzleLightsManager : MonoBehaviour
                 if (cambiocorrtinas == false)
                 {
                     cambiocorrtinas = true;
-                    StopCoroutine(parte1cicle());
-                    StopCoroutine(endcicle1());
+                    
                     StartCoroutine(wincicle1());
                     StopCoroutine(wincicle1());
                     puntosGanados++;
@@ -87,18 +90,20 @@ public class PuzzleLightsManager : MonoBehaviour
 
                     if (cambiocorrtinas == false)
                     {
+                       
                         cambiocorrtinas = true;
                         StartCoroutine(parte2cicle());
-                        StopCoroutine(parte2cicle());
+                        
                     }
                 }
                 else
                 {
                     if (cambiocorrtinas == false)
                     {
+                       
                         cambiocorrtinas = true;
+
                         StartCoroutine(endcicle2());
-                        StopCoroutine(endcicle2());
                     }
 
                 }
@@ -109,8 +114,7 @@ public class PuzzleLightsManager : MonoBehaviour
                 if (cambiocorrtinas == false)
                 {
                     cambiocorrtinas = true;
-                    StopCoroutine(parte2cicle());
-                    StopCoroutine(endcicle2());
+                   
                     StartCoroutine(wincicle2());
                     StopCoroutine(wincicle2());
                     puntosGanados++;
@@ -129,9 +133,10 @@ public class PuzzleLightsManager : MonoBehaviour
 
                     if (cambiocorrtinas == false)
                     {
+                        
                         cambiocorrtinas = true;
                         StartCoroutine(parte3cicle());
-                        StopCoroutine(parte3cicle());
+                       
                     }
 
                 }
@@ -139,9 +144,10 @@ public class PuzzleLightsManager : MonoBehaviour
                 {
                     if (cambiocorrtinas == false)
                     {
+                      
                         cambiocorrtinas = true;
                         StartCoroutine(endcicle3());
-                        StopCoroutine(endcicle3());
+                       
                     }
 
 
@@ -153,8 +159,7 @@ public class PuzzleLightsManager : MonoBehaviour
                 if (cambiocorrtinas == false)
                 {
                     cambiocorrtinas = true;
-                    StopCoroutine(parte3cicle());
-                    StopCoroutine(endcicle3());
+                   
                     StartCoroutine(wincicle3());
                     
                     puntosGanados++;
@@ -209,7 +214,8 @@ public class PuzzleLightsManager : MonoBehaviour
 
     public IEnumerator parte1cicle()
     {
-        yield return new WaitForSeconds(velocidadParte1*10);
+       
+        yield return new WaitForSeconds(1f);
         bool cambio = true;
         for (int i = 0; i < parte1.transform.childCount &&  cambio==true; i++)
         {
@@ -235,7 +241,7 @@ public class PuzzleLightsManager : MonoBehaviour
                
             }
         }
-        yield return new WaitForSeconds(0.5f);
+       
         cicle1 = false;
         cambiocorrtinas = false;
       
@@ -246,6 +252,7 @@ public class PuzzleLightsManager : MonoBehaviour
 
     public IEnumerator endcicle1()
     {
+       
         yield return new WaitForSeconds(1f);
         for (int i = parte1.transform.childCount-1; i >= 0; i--)
         {
@@ -264,9 +271,9 @@ public class PuzzleLightsManager : MonoBehaviour
     }
     public IEnumerator parte2cicle()
 
-    {
-        yield return StartCoroutine(wincicle1());
-        yield return new WaitForSeconds(0.5f);
+    { 
+        
+        yield return new WaitForSeconds(1f);
         bool cambio = true;
         for (int i = 0; i < parte2.transform.childCount && cambio == true; i++)
         {
@@ -295,7 +302,7 @@ public class PuzzleLightsManager : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(1f);
+        
         cicle2 = false;
         cambiocorrtinas = false;
 
@@ -306,6 +313,8 @@ public class PuzzleLightsManager : MonoBehaviour
 
     public IEnumerator endcicle2()
     {
+        StopCoroutine(parte2cicle());
+        StopCoroutine(endcicle3());
         yield return new WaitForSeconds(1f);
         for (int i = parte2.transform.childCount - 1; i >= 0; i--)
         {
@@ -315,6 +324,7 @@ public class PuzzleLightsManager : MonoBehaviour
             yield return new WaitForSeconds(velocidadParte2);
 
         }
+        
         cicle2 = true;
         tiempo = 0;
         cambiocorrtinas = false;
@@ -326,8 +336,8 @@ public class PuzzleLightsManager : MonoBehaviour
     public IEnumerator parte3cicle()
 
     {
-        yield return StartCoroutine(wincicle2());
-        yield return new WaitForSeconds(1f);
+  
+        
         bool cambio = true;
         for (int i = 0; i < parte3.transform.childCount && cambio == true; i++)
         {
@@ -366,7 +376,8 @@ public class PuzzleLightsManager : MonoBehaviour
 
     public IEnumerator endcicle3()
     {
-        yield return new WaitForSeconds(1f);
+        StopCoroutine(parte3cicle());
+        
         for (int i = parte3.transform.childCount - 1; i >= 0; i--)
         {
             yield return new WaitForSeconds(velocidadParte3);
@@ -375,6 +386,7 @@ public class PuzzleLightsManager : MonoBehaviour
             yield return new WaitForSeconds(velocidadParte3);
 
         }
+        
         cicle3 = true;
         tiempo = 0;
         cambiocorrtinas = false;
@@ -384,9 +396,11 @@ public class PuzzleLightsManager : MonoBehaviour
 
     public IEnumerator wincicle1()
     {
-
+        yield return new WaitForSeconds(2);
         for (int i = 0; i < parte1.transform.childCount; i++)
         {
+            StopCoroutine(parte1cicle());
+            StopCoroutine(endcicle1());
             yield return new WaitForSeconds(0.1f);
             parte1.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             parte1.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
@@ -399,8 +413,8 @@ public class PuzzleLightsManager : MonoBehaviour
     public IEnumerator wincicle2()
 
     {
+        yield return new WaitForSeconds(2);
 
-        yield return new WaitForSeconds((1 + velocidadParte2 * parte2.transform.childCount));
 
         for (int i = 0; i < parte2.transform.childCount; i++)
         {
@@ -417,8 +431,7 @@ public class PuzzleLightsManager : MonoBehaviour
     public IEnumerator wincicle3()
 
     {
-
-        yield return new WaitForSeconds( velocidadParte3 * parte3.transform.childCount*5); ;
+        yield return new WaitForSeconds(2);
 
         for (int i = 0; i < parte3.transform.childCount; i++)
         {

@@ -24,54 +24,77 @@ public class SimonSays : MonoBehaviour
     private Color colorGreenLit;
     private Color colorYellowLit;
     private Color colorWhitelit;
+   public bool acabar=false;
+ 
+    public int Nivelactual;
+    int actualnumber;
+    private int puntos=0;
+    public GameObject indicators;
+
+    int indicatorsnumber=0;
+    int primarysecuence;
 
     // Start is called before the first frame update
     void Start()
     {
-        colorWhite = whiteButton.gameObject.GetComponent<Renderer>().material.color;
-        colorRed = buttons[0].gameObject.GetComponent<Renderer>().material.color;
-       colorBlue = buttons[1].gameObject.GetComponent<Renderer>().material.color;
-        colorgreen = buttons[2].gameObject.GetComponent<Renderer>().material.color;
-         coloryellow = buttons[3].gameObject.GetComponent<Renderer>().material.color;
-         colorRedlit = new Color(buttons[0].gameObject.GetComponent<Renderer>().material.color.r + 0.3f, buttons[0].gameObject.GetComponent<Renderer>().material.color.g, buttons[0].gameObject.GetComponent<Renderer>().material.color.b, buttons[0].gameObject.GetComponent<Renderer>().material.color.a);
-        colorBlueLit = new Color(buttons[1].gameObject.GetComponent<Renderer>().material.color.r , buttons[1].gameObject.GetComponent<Renderer>().material.color.g, buttons[1].gameObject.GetComponent<Renderer>().material.color.b + 0.3f, buttons[1].gameObject.GetComponent<Renderer>().material.color.a);
-      colorGreenLit = new Color(buttons[2].gameObject.GetComponent<Renderer>().material.color.r, buttons[2].gameObject.GetComponent<Renderer>().material.color.g + 0.3f, buttons[2].gameObject.GetComponent<Renderer>().material.color.b , buttons[2].gameObject.GetComponent<Renderer>().material.color.a);
-         colorYellowLit = new Color(buttons[3].gameObject.GetComponent<Renderer>().material.color.r, buttons[3].gameObject.GetComponent<Renderer>().material.color.g + 0.3f, buttons[3].gameObject.GetComponent<Renderer>().material.color.b, buttons[3].gameObject.GetComponent<Renderer>().material.color.a);
+        primarysecuence = sequenceLength;
+        for (int i = 0; i < indicators.transform.childCount; i++)
+        {
+            indicators.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            indicators.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
+        }
+        colorWhite = whiteButton.transform.GetComponent<Renderer>().material.color;
+        colorRed = buttons[0].transform.GetComponent<Renderer>().material.color;
+       colorBlue = buttons[1].transform.GetComponent<Renderer>().material.color;
+        colorgreen = buttons[2].transform.GetComponent<Renderer>().material.color;
+         coloryellow = buttons[3].transform.GetComponent<Renderer>().material.color;
+         colorRedlit = new Color(buttons[0].transform.GetComponent<Renderer>().material.color.r + 0.3f, buttons[0].transform.GetComponent<Renderer>().material.color.g, buttons[0].transform.GetComponent<Renderer>().material.color.b, buttons[0].transform.GetComponent<Renderer>().material.color.a);
+        colorBlueLit = new Color(buttons[1].transform.GetComponent<Renderer>().material.color.r , buttons[1].transform.GetComponent<Renderer>().material.color.g, buttons[1].transform.GetComponent<Renderer>().material.color.b + 0.3f, buttons[1].transform.GetComponent<Renderer>().material.color.a);
+      colorGreenLit = new Color(buttons[2].transform.GetComponent<Renderer>().material.color.r, buttons[2].transform.GetComponent<Renderer>().material.color.g + 0.3f, buttons[2].transform.GetComponent<Renderer>().material.color.b , buttons[2].transform.GetComponent<Renderer>().material.color.a);
+         colorYellowLit = new Color(buttons[3].transform.GetComponent<Renderer>().material.color.r, buttons[3].transform.GetComponent<Renderer>().material.color.g + 0.3f, buttons[3].transform.GetComponent<Renderer>().material.color.b, buttons[3].transform.GetComponent<Renderer>().material.color.a);
         colorWhitelit = Color.gray;
+        actualnumber = sequenceLength;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*ray =
+        ray =
           Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0))
         {
+
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider != null && hit.collider.transform.name == "Button_Object_start")
+                Debug.Log(hit.collider.transform.name);
+                if (acabar == false)
                 {
-                    StartCoroutine(PlaySequencePressed(4));
-                    GenerateSequence();
-                    StartCoroutine(PlaySequence());
-                }
-                if (hit.collider != null && hit.collider.transform.name == "Button_Object_red")
-                {
-                    StartCoroutine(PlaySequencePressed(0));
-                }
-                if (hit.collider != null && hit.collider.transform.name == "Button_Object_blue")
-                {
-                    StartCoroutine(PlaySequencePressed(1));
-                }
-                if (hit.collider != null && hit.collider.transform.name == "Button_Object_green")
-                {
-                    StartCoroutine(PlaySequencePressed(2));
-                }
-                if (hit.collider != null && hit.collider.transform.name == "Button_Object_yellow")
-                {
-                    StartCoroutine(PlaySequencePressed(3));
+                    if (hit.collider != null && hit.collider.transform.name == "Button_Object_start")
+                    {
+                        indicatorsnumber = 0;
+                        sequenceLength = primarysecuence;
+                        StartCoroutine(PlaySequencePressed(4));
+                        GenerateSequence();
+                        StartCoroutine(PlaySequence());
+                    }
+                    if (hit.collider != null && hit.collider.transform.name == "Button_Object_red")
+                    {
+                        StartCoroutine(PlaySequencePressed(0));
+                    }
+                    if (hit.collider != null && hit.collider.transform.name == "Button_Object_blue")
+                    {
+                        StartCoroutine(PlaySequencePressed(1));
+                    }
+                    if (hit.collider != null && hit.collider.transform.name == "Button_Object_green")
+                    {
+                        StartCoroutine(PlaySequencePressed(2));
+                    }
+                    if (hit.collider != null && hit.collider.transform.name == "Button_Object_yellow")
+                    {
+                        StartCoroutine(PlaySequencePressed(3));
+                    }
                 }
             }
         }
@@ -86,23 +109,59 @@ public class SimonSays : MonoBehaviour
                     if (hit.collider != null && hit.collider.gameObject == buttons[sequence[currentIndex]])
                     {
                         currentIndex++;
+                        Debug.Log(currentIndex.ToString());
                     }
                     else
                     {
+                        indicatorsnumber = 0;
+                        sequenceLength = primarysecuence;
                         Debug.Log("Game Over");
+                        for (int i = 0; i < indicators.transform.childCount; i++)
+                        {
+                            indicators.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                            indicators.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
+                        }
                     }
 
                     if (currentIndex == sequence.Count)
                     {
-                        Debug.Log("Sequence Complete");
-                        playerTurn = false;
-                        currentIndex = 0;
-                       
+                        if (puntos == indicators.transform.childCount)
+                        {
+                            Ganaste();
+                            playerTurn = false;
+                            currentIndex = 0;
+                            acabar = true;
+                        }
+                     else
+                        {
+                            playerTurn = false;
+                            currentIndex = 0;
+                            puntos++;
+                        
+                            avanzarnivel();
+
+
+                        }
+                        
+
                     }
                 }
             }
-        }*/
+
+        }
     }
+
+    public void avanzarnivel()
+    {
+        
+                sequenceLength= actualnumber + puntos;
+
+        
+        GenerateSequence();
+        StartCoroutine(PlaysecuenceTiempo());
+        StartCoroutine(tiempoExtra());
+        
+    }    
 
     public void checkbutton(int buttonIndex)
     {
@@ -112,22 +171,44 @@ public class SimonSays : MonoBehaviour
         }
         else
         {
+            indicatorsnumber = 0;
+            sequenceLength = primarysecuence;
             Debug.Log("Game Over");
+            for (int i = 0; i < indicators.transform.childCount; i++)
+            {
+                indicators.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                indicators.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
+            }
         }
 
         if (currentIndex == sequence.Count)
         {
-            Ganaste();
-            Debug.Log("Sequence Complete");
-            playerTurn = false;
-            currentIndex = 0;
-           
+            if (puntos == indicators.transform.childCount)
+            {
+                Ganaste();
+                playerTurn = false;
+                currentIndex = 0;
+                acabar = true;
+            }
+            else
+            {
+                playerTurn = false;
+                currentIndex = 0;
+                puntos++;
+
+                avanzarnivel();
+
+
+            }
+
+
         }
-    }
+    
+}
 
     public void Ganaste()
     {
-
+        Debug.Log("Ganaste");
     }
 
     public void GenerateSequence()
@@ -146,43 +227,64 @@ public class SimonSays : MonoBehaviour
 
         foreach (int i in sequence)
         {
-            if(buttons[i].gameObject.GetComponent<Renderer>().material.color==colorRed)
+            if(buttons[i].transform.GetComponent<Renderer>().material.color==colorRed)
             {
-                buttons[i].gameObject.GetComponent<Renderer>().material.color = colorRedlit;
+                buttons[i].transform.GetComponent<Renderer>().material.color = colorRedlit;
+                buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", colorRedlit);
+                buttons[i].gameObject.GetComponent<AudioSource>().Play();
             }
-            else if (buttons[i].gameObject.GetComponent<Renderer>().material.color == colorBlue)
+            else if (buttons[i].transform.GetComponent<Renderer>().material.color == colorBlue)
             {
-                buttons[i].gameObject.GetComponent<Renderer>().material.color = colorBlueLit;
+                buttons[i].transform.GetComponent<Renderer>().material.color = colorBlueLit;
+                buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", colorBlueLit);
+                buttons[i].gameObject.GetComponent<AudioSource>().Play();
             }
-            else if (buttons[i].gameObject.GetComponent<Renderer>().material.color == colorgreen)
+            else if (buttons[i].transform.GetComponent<Renderer>().material.color == colorgreen)
             {
-                buttons[i].gameObject.GetComponent<Renderer>().material.color = colorGreenLit;
+                buttons[i].transform.GetComponent<Renderer>().material.color = colorGreenLit;
+                buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", colorGreenLit);
+                buttons[i].gameObject.GetComponent<AudioSource>().Play();
+
             }
 
-            else if (buttons[i].gameObject.GetComponent<Renderer>().material.color == coloryellow)
+            else if (buttons[i].transform.GetComponent<Renderer>().material.color == coloryellow)
             {
-                buttons[i].gameObject.GetComponent<Renderer>().material.color = colorYellowLit;
+                buttons[i].transform.GetComponent<Renderer>().material.color = colorYellowLit;
+                buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", colorYellowLit);
+                buttons[i].gameObject.GetComponent<AudioSource>().Play();
             }
 
             //buttons[i].GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(sequenceDelay);
 
-            if (buttons[i].gameObject.GetComponent<Renderer>().material.color == colorRedlit)
+            if (buttons[i].transform.GetComponent<Renderer>().material.color == colorRedlit)
             {
-                buttons[i].gameObject.GetComponent<Renderer>().material.color = colorRed;
+                buttons[i].transform.GetComponent<Renderer>().material.color = colorRed;
+                buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
             }
-            else if (buttons[i].gameObject.GetComponent<Renderer>().material.color == colorBlueLit)
+            else if (buttons[i].transform.GetComponent<Renderer>().material.color == colorBlueLit)
             {
-                buttons[i].gameObject.GetComponent<Renderer>().material.color = colorBlue;
+                buttons[i].transform.GetComponent<Renderer>().material.color = colorBlue;
+                buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
             }
-            else if (buttons[i].gameObject.GetComponent<Renderer>().material.color == colorGreenLit)
+            else if (buttons[i].transform.GetComponent<Renderer>().material.color == colorGreenLit)
             {
-                buttons[i].gameObject.GetComponent<Renderer>().material.color = colorgreen;
+                buttons[i].transform.GetComponent<Renderer>().material.color = colorgreen;
+                buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
             }
 
-            else if (buttons[i].gameObject.GetComponent<Renderer>().material.color == colorYellowLit)
+            else if (buttons[i].transform.GetComponent<Renderer>().material.color == colorYellowLit)
             {
-                buttons[i].gameObject.GetComponent<Renderer>().material.color = coloryellow;
+                buttons[i].transform.GetComponent<Renderer>().material.color = coloryellow;
+                buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
             }
 
             //buttons[i].GetComponent<AudioSource>().Play();
@@ -200,24 +302,38 @@ public class SimonSays : MonoBehaviour
         
             if (i==0)
             {
-                buttons[0].gameObject.GetComponent<Renderer>().material.color = colorRedlit;
-            }
+            buttons[i].transform.GetComponent<Renderer>().material.color = colorRedlit;
+            buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", colorRedlit);
+            buttons[i].gameObject.GetComponent<AudioSource>().Play();
+        }
             else if (i == 1)
             {
-                buttons[1].gameObject.GetComponent<Renderer>().material.color = colorBlueLit;
-            }
+            buttons[i].transform.GetComponent<Renderer>().material.color = colorBlueLit;
+            buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", colorBlueLit);
+            buttons[i].gameObject.GetComponent<AudioSource>().Play();
+        }
             else if (i == 2)
             {
-                buttons[2].gameObject.GetComponent<Renderer>().material.color = colorGreenLit;
-            }
+            buttons[i].transform.GetComponent<Renderer>().material.color = colorGreenLit;
+            buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", colorGreenLit);
+            buttons[i].gameObject.GetComponent<AudioSource>().Play();
+        }
 
             else if (i == 3)
             {
-                buttons[3].gameObject.GetComponent<Renderer>().material.color = colorYellowLit;
-            }
+            buttons[i].transform.GetComponent<Renderer>().material.color = coloryellow;
+            buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", colorYellowLit);
+            buttons[i].gameObject.GetComponent<AudioSource>().Play();
+        }
         else if  (i==4)
         {
-            whiteButton.gameObject.GetComponent<Renderer>().material.color = colorWhitelit;
+            whiteButton.transform.GetComponent<Renderer>().material.color = colorWhitelit;
+            whiteButton.transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            whiteButton.transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", colorWhitelit);
         }
 
         //buttons[i].GetComponent<AudioSource>().Play();
@@ -225,27 +341,51 @@ public class SimonSays : MonoBehaviour
 
             if (i==0)
             {
-                buttons[0].gameObject.GetComponent<Renderer>().material.color = colorRed;
-            }
+            buttons[0].transform.GetComponent<Renderer>().material.color = colorRed;
+            buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
+        }
             else if (i==1)
             {
-                buttons[1].gameObject.GetComponent<Renderer>().material.color = colorBlue;
-            }
+            buttons[1].transform.GetComponent<Renderer>().material.color = colorBlue;
+            buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
+        }
             else if (i == 2)
             {
-                buttons[2].gameObject.GetComponent<Renderer>().material.color = colorgreen;
-            }
+            buttons[2].transform.gameObject.GetComponent<Renderer>().material.color = colorgreen;
+            buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
+        }
 
             else if (i == 3)
             {
-                buttons[3].gameObject.GetComponent<Renderer>().material.color = coloryellow;
-            }
+            buttons[3].transform.gameObject.GetComponent<Renderer>().material.color = coloryellow;
+            buttons[i].transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            buttons[i].transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
+        }
             else if(i==4)
         {
-            whiteButton.gameObject.GetComponent<Renderer>().material.color = colorWhite;
+            whiteButton.transform.GetComponent<Renderer>().material.color = colorWhite;
+            whiteButton.transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            whiteButton.transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
         }
             //buttons[i].GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(sequenceDelayPressed);
         
+    }
+
+
+    public IEnumerator PlaysecuenceTiempo()
+    {
+        yield return new WaitForSeconds(3);
+        StartCoroutine(PlaySequence());
+    }
+    public IEnumerator tiempoExtra()
+    {
+        yield return new WaitForSeconds(1.5f);
+        indicators.transform.GetChild(indicatorsnumber).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        indicators.transform.GetChild(indicatorsnumber).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
+        indicatorsnumber++;
     }
 }

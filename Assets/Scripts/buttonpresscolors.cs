@@ -10,15 +10,18 @@ public class buttonpresscolors : MonoBehaviour
     public void buttonPressed()
 
     {
-        if(buttonIndex==4)
+        if (simon.acabar == false)
         {
-            simon.GenerateSequence();
-            StartCoroutine(simon.PlaySequence());
-        }
-        else
-        {
-            simon.checkbutton(buttonIndex);
-            simon.PlaySequencePressed(buttonIndex);
+            if (buttonIndex == 4)
+            {
+                simon.GenerateSequence();
+                StartCoroutine(simon.PlaySequence());
+            }
+            else
+            {
+                simon.checkbutton(buttonIndex);
+                simon.PlaySequencePressed(buttonIndex);
+            }
         }
     }
 }
