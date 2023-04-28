@@ -24,4 +24,13 @@ public class buttonpresscolors : MonoBehaviour
             }
         }
     }
+
+    public void booloprimirfalse()
+    {
+        simon.oprimirbool = false;
+    }
+    public void booloprimirtrue()
+    {
+        simon.oprimirbool = true;
+    }
 }

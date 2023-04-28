@@ -24,9 +24,10 @@ public class SimonSays : MonoBehaviour
     private Color colorGreenLit;
     private Color colorYellowLit;
     private Color colorWhitelit;
-   public bool acabar=false;
- 
-    public int Nivelactual;
+ public bool acabar=false;
+
+public bool oprimirbool=false;
+    private int Nivelactual;
     int actualnumber;
     private int puntos=0;
     public GameObject indicators;
@@ -109,13 +110,14 @@ public class SimonSays : MonoBehaviour
                     if (hit.collider != null && hit.collider.gameObject == buttons[sequence[currentIndex]])
                     {
                         currentIndex++;
-                        Debug.Log(currentIndex.ToString());
+                       
                     }
                     else
                     {
-                        indicatorsnumber = 0;
+                        currentIndex=0;
                         sequenceLength = primarysecuence;
                         Debug.Log("Game Over");
+                        puntos = 0;
                         for (int i = 0; i < indicators.transform.childCount; i++)
                         {
                             indicators.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
@@ -125,6 +127,7 @@ public class SimonSays : MonoBehaviour
 
                     if (currentIndex == sequence.Count)
                     {
+                        puntos++;
                         if (puntos == indicators.transform.childCount)
                         {
                             Ganaste();
@@ -136,9 +139,11 @@ public class SimonSays : MonoBehaviour
                         {
                             playerTurn = false;
                             currentIndex = 0;
-                            puntos++;
-                        
-                            avanzarnivel();
+                           
+
+                            
+                                avanzarnivel();
+                         
 
 
                         }
@@ -165,43 +170,50 @@ public class SimonSays : MonoBehaviour
 
     public void checkbutton(int buttonIndex)
     {
-        if(buttonIndex== sequence[currentIndex])
+        if (oprimirbool == false)
         {
-            currentIndex++;
-        }
-        else
-        {
-            indicatorsnumber = 0;
-            sequenceLength = primarysecuence;
-            Debug.Log("Game Over");
-            for (int i = 0; i < indicators.transform.childCount; i++)
+            if (buttonIndex == sequence[currentIndex])
             {
-                indicators.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-                indicators.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
-            }
-        }
-
-        if (currentIndex == sequence.Count)
-        {
-            if (puntos == indicators.transform.childCount)
-            {
-                Ganaste();
-                playerTurn = false;
-                currentIndex = 0;
-                acabar = true;
+                currentIndex++;
             }
             else
             {
-                playerTurn = false;
                 currentIndex = 0;
-                puntos++;
+                sequenceLength = primarysecuence;
+                Debug.Log("Game Over");
+                puntos = 0;
+                for (int i = 0; i < indicators.transform.childCount; i++)
+                {
+                    indicators.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                    indicators.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
+                }
+            }
 
-                avanzarnivel();
+            if (currentIndex == sequence.Count)
+            {
+                puntos++;
+                if (puntos == indicators.transform.childCount)
+                {
+                    Ganaste();
+                    playerTurn = false;
+                    currentIndex = 0;
+                    acabar = true;
+                }
+                else
+                {
+                    playerTurn = false;
+                    currentIndex = 0;
+
+
+
+                    avanzarnivel();
+
+
+
+                }
 
 
             }
-
-
         }
     
 }
@@ -388,4 +400,6 @@ public class SimonSays : MonoBehaviour
         indicators.transform.GetChild(indicatorsnumber).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
         indicatorsnumber++;
     }
+
+    
 }
