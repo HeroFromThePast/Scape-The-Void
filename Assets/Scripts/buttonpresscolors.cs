@@ -14,6 +14,8 @@ public class buttonpresscolors : MonoBehaviour
         {
             if (buttonIndex == 4)
             {
+                simon.puntoscero();
+                simon.indicatorscero();
                 simon.GenerateSequence();
                 StartCoroutine(simon.PlaySequence());
             }

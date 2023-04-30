@@ -20,6 +20,8 @@ public class PuzzleLightsManager : MonoBehaviour
     bool cicle2win = false;
     public float velocidadParte2;
 
+    private bool cambiobool = false;
+
     bool cicle3 = true;
     bool cicle3win = false;
     public float velocidadParte3;
@@ -205,6 +207,39 @@ public class PuzzleLightsManager : MonoBehaviour
 
         }
        
+    }
+
+
+    public void buttonpressed()
+    {
+        if (cambiobool == false)
+        {
+            if (puntosGanados == 0)
+            {
+                if ((tiempo >= velocidadParte1 * 9 || tiempo <= velocidadParte1 * 10.5) || (tiempo >= velocidadParte1 * 21 || tiempo <= velocidadParte1 * 22.5))
+                {
+                    cicle1win = true;
+
+                }
+            }
+            if (puntosGanados == 1)
+            {
+                if ((tiempo >= velocidadParte2 * 11 || tiempo <= velocidadParte1 * 12.5) || (tiempo >= velocidadParte2 * 19 || tiempo <= velocidadParte2 * 21.5))
+                {
+                    cicle2win = true;
+
+                }
+            }
+
+            if (puntosGanados == 2)
+            {
+                if ((tiempo >= velocidadParte3 * 13 || tiempo <= velocidadParte1 * 14.5) || (tiempo >= velocidadParte3 * 23 || tiempo <= velocidadParte3 * 24.5))
+                {
+                    cicle3win = true;
+
+                }
+            }
+        }
     }
 
     private void Ganaste()
@@ -445,33 +480,16 @@ public class PuzzleLightsManager : MonoBehaviour
         cambiocorrtinas = false;
     }
 
-    public void oprimirboton()
+   
+
+    public void cambiofalse()
     {
-        if (puntosGanados == 0)
-        {
-            if ((tiempo >= velocidadParte1 * 9 || tiempo <= velocidadParte1 * 10.5) || (tiempo >= velocidadParte1 * 21 || tiempo <= velocidadParte1 * 22.5))
-            {
-                cicle1win = true;
+        cambiobool = false;
+    }
 
-            }
-        }
-        if (puntosGanados == 1)
-        {
-            if ((tiempo >= velocidadParte2 * 11 || tiempo <= velocidadParte1 * 12.5) || (tiempo >= velocidadParte2 * 19 || tiempo <= velocidadParte2 * 21.5))
-            {
-                cicle2win = true;
-
-            }
-        }
-
-        if (puntosGanados == 2)
-        {
-            if ((tiempo >= velocidadParte3 * 13 || tiempo <= velocidadParte1 * 14.5) || (tiempo >= velocidadParte3 * 23 || tiempo <= velocidadParte3 * 24.5))
-            {
-                cicle3win = true;
-
-            }
-        }
+    public void cambiotrue()
+    {
+        cambiobool = true;
     }
 
 }

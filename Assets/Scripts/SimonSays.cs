@@ -29,10 +29,10 @@ public class SimonSays : MonoBehaviour
 public bool oprimirbool=false;
     private int Nivelactual;
     int actualnumber;
-    private int puntos=0;
+    private  int puntos=0;
     public GameObject indicators;
 
-    int indicatorsnumber=0;
+   private int indicatorsnumber=0;
     int primarysecuence;
 
     // Start is called before the first frame update
@@ -75,6 +75,7 @@ public bool oprimirbool=false;
                     if (hit.collider != null && hit.collider.transform.name == "Button_Object_start")
                     {
                         indicatorsnumber = 0;
+                        puntos = 0;
                         sequenceLength = primarysecuence;
                         StartCoroutine(PlaySequencePressed(4));
                         GenerateSequence();
@@ -114,6 +115,7 @@ public bool oprimirbool=false;
                     }
                     else
                     {
+                        indicatorsnumber = 0;
                         currentIndex=0;
                         sequenceLength = primarysecuence;
                         Debug.Log("Game Over");
@@ -130,6 +132,7 @@ public bool oprimirbool=false;
                         puntos++;
                         if (puntos == indicators.transform.childCount)
                         {
+                            StartCoroutine(tiempoExtra());
                             Ganaste();
                             playerTurn = false;
                             currentIndex = 0;
@@ -178,6 +181,7 @@ public bool oprimirbool=false;
             }
             else
             {
+                indicatorsnumber = 0;
                 currentIndex = 0;
                 sequenceLength = primarysecuence;
                 Debug.Log("Game Over");
@@ -194,6 +198,7 @@ public bool oprimirbool=false;
                 puntos++;
                 if (puntos == indicators.transform.childCount)
                 {
+                    StartCoroutine(tiempoExtra());
                     Ganaste();
                     playerTurn = false;
                     currentIndex = 0;
@@ -399,6 +404,17 @@ public bool oprimirbool=false;
         indicators.transform.GetChild(indicatorsnumber).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         indicators.transform.GetChild(indicatorsnumber).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
         indicatorsnumber++;
+    }
+
+
+    public void puntoscero()
+    {
+        puntos = 0;
+    }
+
+    public void indicatorscero()
+    {
+        indicatorsnumber = 0;
     }
 
     
