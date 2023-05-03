@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Laser : MonoBehaviour
 {
     [SerializeField] LineRenderer lr;
     [SerializeField] Transform startPoint;
+
+    
+
     void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -19,11 +23,20 @@ public class Laser : MonoBehaviour
 
         if (Physics.Raycast(transform.position, -transform.right, out hit))
         {
-            if (hit.collider)
+
+            LaserDetector laserhit = hit.collider.GetComponent<LaserDetector>();
+
+            if (hit.collider.CompareTag("cube"))
+            {               
+                    laserhit.HitByRaycast();
+                   
+                lr.SetPosition(1, hit.point);
+            }
+            else if (hit.collider)
             {
                 lr.SetPosition(1, hit.point);
             }
         }
-        else lr.SetPosition(1, -transform.right * 5000); 
+        else lr.SetPosition(1, -transform.right * 5000);
     }
 }
