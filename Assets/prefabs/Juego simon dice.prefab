@@ -864,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -1308,7 +1308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -1693,7 +1693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -2137,7 +2137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -2577,7 +2577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8928635435149944101, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.data[2].m_Mode

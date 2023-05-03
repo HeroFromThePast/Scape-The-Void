@@ -173,8 +173,7 @@ public bool oprimirbool=false;
 
     public void checkbutton(int buttonIndex)
     {
-        if (oprimirbool == false)
-        {
+          
             if (buttonIndex == sequence[currentIndex])
             {
                 currentIndex++;
@@ -219,7 +218,7 @@ public bool oprimirbool=false;
 
 
             }
-        }
+        
     
 }
 

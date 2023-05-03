@@ -6,12 +6,14 @@ public class buttonpresscolors : MonoBehaviour
 {
     public SimonSays simon;
     public int buttonIndex;
+    private bool pressed=false;
     // Start is called before the first frame update
     public void buttonPressed()
 
     {
-        if (simon.acabar == false)
+        if (pressed == false)
         {
+            pressed = true;
             if (buttonIndex == 4)
             {
                 simon.puntoscero();
@@ -29,10 +31,10 @@ public class buttonpresscolors : MonoBehaviour
 
     public void booloprimirfalse()
     {
-        simon.oprimirbool = false;
+        pressed = false;
     }
     public void booloprimirtrue()
     {
-        simon.oprimirbool = true;
+        pressed = true;
     }
 }
