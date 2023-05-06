@@ -34,6 +34,7 @@ public bool oprimirbool=false;
 
    private int indicatorsnumber=0;
     int primarysecuence;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -45,17 +46,22 @@ public bool oprimirbool=false;
             indicators.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
         }
         colorWhite = whiteButton.transform.GetComponent<Renderer>().material.color;
+        if(buttons.Count==4)
+        { 
         colorRed = buttons[0].transform.GetComponent<Renderer>().material.color;
        colorBlue = buttons[1].transform.GetComponent<Renderer>().material.color;
         colorgreen = buttons[2].transform.GetComponent<Renderer>().material.color;
          coloryellow = buttons[3].transform.GetComponent<Renderer>().material.color;
-         colorRedlit = new Color(buttons[0].transform.GetComponent<Renderer>().material.color.r + 0.3f, buttons[0].transform.GetComponent<Renderer>().material.color.g, buttons[0].transform.GetComponent<Renderer>().material.color.b, buttons[0].transform.GetComponent<Renderer>().material.color.a);
-        colorBlueLit = new Color(buttons[1].transform.GetComponent<Renderer>().material.color.r , buttons[1].transform.GetComponent<Renderer>().material.color.g, buttons[1].transform.GetComponent<Renderer>().material.color.b + 0.3f, buttons[1].transform.GetComponent<Renderer>().material.color.a);
-      colorGreenLit = new Color(buttons[2].transform.GetComponent<Renderer>().material.color.r, buttons[2].transform.GetComponent<Renderer>().material.color.g + 0.3f, buttons[2].transform.GetComponent<Renderer>().material.color.b , buttons[2].transform.GetComponent<Renderer>().material.color.a);
-         colorYellowLit = new Color(buttons[3].transform.GetComponent<Renderer>().material.color.r, buttons[3].transform.GetComponent<Renderer>().material.color.g + 0.3f, buttons[3].transform.GetComponent<Renderer>().material.color.b, buttons[3].transform.GetComponent<Renderer>().material.color.a);
+            }
+        if (buttons.Count == 4)
+        {
+            colorRedlit = new Color(buttons[0].transform.GetComponent<Renderer>().material.color.r + 0.3f, buttons[0].transform.GetComponent<Renderer>().material.color.g, buttons[0].transform.GetComponent<Renderer>().material.color.b, buttons[0].transform.GetComponent<Renderer>().material.color.a);
+            colorBlueLit = new Color(buttons[1].transform.GetComponent<Renderer>().material.color.r, buttons[1].transform.GetComponent<Renderer>().material.color.g, buttons[1].transform.GetComponent<Renderer>().material.color.b + 0.3f, buttons[1].transform.GetComponent<Renderer>().material.color.a);
+            colorGreenLit = new Color(buttons[2].transform.GetComponent<Renderer>().material.color.r, buttons[2].transform.GetComponent<Renderer>().material.color.g + 0.3f, buttons[2].transform.GetComponent<Renderer>().material.color.b, buttons[2].transform.GetComponent<Renderer>().material.color.a);
+            colorYellowLit = new Color(buttons[3].transform.GetComponent<Renderer>().material.color.r, buttons[3].transform.GetComponent<Renderer>().material.color.g + 0.3f, buttons[3].transform.GetComponent<Renderer>().material.color.b, buttons[3].transform.GetComponent<Renderer>().material.color.a);
+        }
         colorWhitelit = Color.gray;
         actualnumber = sequenceLength;
-
     }
 
     // Update is called once per frame
