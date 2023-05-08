@@ -181,24 +181,24 @@ public class PuzzleLightsManager : MonoBehaviour
         {
             if (puntosGanados == 0)
             {
-                if ((tiempo >= velocidadParte1 * 9 && tiempo <= velocidadParte1 * 10.5)|| (tiempo >= velocidadParte1 *21 && tiempo<=velocidadParte1 * 22.5))
+                if ((tiempo >= velocidadParte1 * 8 && tiempo <= velocidadParte1 * 10.5) || (tiempo >= velocidadParte1 * 20 && tiempo <= velocidadParte1 * 23))
                 {
                     cicle1win = true;
-                   
+
                 }
             }
             if (puntosGanados == 1)
             {
-                if ((tiempo >= velocidadParte2 * 11 && tiempo <= velocidadParte1 * 12.5)|| (tiempo >= velocidadParte2 * 19 && tiempo <= velocidadParte2 * 21.5))
+                if ((tiempo >= velocidadParte2 * 10 && tiempo <= velocidadParte2 * 18) || (tiempo >= velocidadParte2 * 18 && tiempo <= velocidadParte2 * 21))
                 {
                     cicle2win = true;
-                  
+
                 }
             }
 
             if (puntosGanados == 2)
             {
-                if ((tiempo >= velocidadParte3 * 13 && tiempo <= velocidadParte1 * 14.5) || (tiempo >= velocidadParte3 * 23 && tiempo <= velocidadParte3 * 24.5))
+                if ((tiempo >= velocidadParte3 * 12 && tiempo <= velocidadParte3 * 15) || (tiempo >= velocidadParte3 * 22 && tiempo <= velocidadParte3 * 25))
                 {
                     cicle3win = true;
 
@@ -216,7 +216,7 @@ public class PuzzleLightsManager : MonoBehaviour
         {
             if (puntosGanados == 0)
             {
-                if ((tiempo >= velocidadParte1 * 9 && tiempo <= velocidadParte1 * 10.5) || (tiempo >= velocidadParte1 * 21 && tiempo <= velocidadParte1 * 22.5))
+                if ((tiempo >= velocidadParte1 * 8 && tiempo <= velocidadParte1 * 10.5) || (tiempo >= velocidadParte1 * 20 && tiempo <= velocidadParte1 * 23))
                 {
                     cicle1win = true;
 
@@ -224,7 +224,7 @@ public class PuzzleLightsManager : MonoBehaviour
             }
             if (puntosGanados == 1)
             {
-                if ((tiempo >= velocidadParte2 * 11 && tiempo <= velocidadParte1 * 12.5) || (tiempo >= velocidadParte2 * 19 && tiempo <= velocidadParte2 * 21.5))
+                if ((tiempo >= velocidadParte2 * 10 && tiempo <= velocidadParte2 * 18) || (tiempo >= velocidadParte2 * 18 && tiempo <= velocidadParte2 * 21))
                 {
                     cicle2win = true;
 
@@ -233,7 +233,7 @@ public class PuzzleLightsManager : MonoBehaviour
 
             if (puntosGanados == 2)
             {
-                if ((tiempo >= velocidadParte3 * 13 && tiempo <= velocidadParte1 * 14.5) || (tiempo >= velocidadParte3 * 23 && tiempo <= velocidadParte3 * 24.5))
+                if ((tiempo >= velocidadParte3 * 12 && tiempo <= velocidadParte3 * 15) || (tiempo >= velocidadParte3 * 22 && tiempo <= velocidadParte3 * 25))
                 {
                     cicle3win = true;
 
