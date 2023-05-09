@@ -21,6 +21,7 @@ public class PuzzleLightsManager : MonoBehaviour
     public float velocidadParte2;
 
     private bool cambiobool = false;
+    public bool trigger=true;
 
     bool cicle3 = true;
     bool cicle3win = false;
@@ -212,36 +213,44 @@ public class PuzzleLightsManager : MonoBehaviour
 
     public void buttonpressed()
     {
-        if (cambiobool == false)
+        if (trigger == true)
         {
-            if (puntosGanados == 0)
+            trigger = false;
+            if (cambiobool == false)
             {
-                if ((tiempo >= velocidadParte1 * 8 && tiempo <= velocidadParte1 * 10.5) || (tiempo >= velocidadParte1 * 20 && tiempo <= velocidadParte1 * 23))
+                if (puntosGanados == 0)
                 {
-                    cicle1win = true;
+                    if ((tiempo >= velocidadParte1 * 8 && tiempo <= velocidadParte1 * 10.5) || (tiempo >= velocidadParte1 * 20 && tiempo <= velocidadParte1 * 23))
+                    {
+                        cicle1win = true;
 
+                    }
                 }
-            }
-            if (puntosGanados == 1)
-            {
-                if ((tiempo >= velocidadParte2 * 10 && tiempo <= velocidadParte2 * 18) || (tiempo >= velocidadParte2 * 18 && tiempo <= velocidadParte2 * 21))
+                if (puntosGanados == 1)
                 {
-                    cicle2win = true;
+                    if ((tiempo >= velocidadParte2 * 10 && tiempo <= velocidadParte2 * 18) || (tiempo >= velocidadParte2 * 18 && tiempo <= velocidadParte2 * 21))
+                    {
+                        cicle2win = true;
 
+                    }
                 }
-            }
 
-            if (puntosGanados == 2)
-            {
-                if ((tiempo >= velocidadParte3 * 12 && tiempo <= velocidadParte3 * 15) || (tiempo >= velocidadParte3 * 22 && tiempo <= velocidadParte3 * 25))
+                if (puntosGanados == 2)
                 {
-                    cicle3win = true;
+                    if ((tiempo >= velocidadParte3 * 12 && tiempo <= velocidadParte3 * 15) || (tiempo >= velocidadParte3 * 22 && tiempo <= velocidadParte3 * 25))
+                    {
+                        cicle3win = true;
 
+                    }
                 }
             }
         }
     }
 
+    public void cambiotriggertrue()
+    {
+        trigger = true;
+    }
     private void Ganaste()
     {
         Debug.Log("Ganaste");
