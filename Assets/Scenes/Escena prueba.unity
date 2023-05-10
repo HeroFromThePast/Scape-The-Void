@@ -19965,7 +19965,10 @@ PrefabInstance:
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2259330871824594363, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+    - {fileID: 1038139895630190986, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+    - {fileID: 4730194352341791434, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
 --- !u!114 &1379398135 stripped
 MonoBehaviour:
