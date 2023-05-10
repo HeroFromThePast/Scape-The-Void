@@ -2036,6 +2036,7 @@ MonoBehaviour:
   parte3: {fileID: 6189746634885187765}
   velocidadParte1: 0.1
   velocidadParte2: 0.05
+  trigger: 1
   velocidadParte3: 0.01
 --- !u!1 &6189746636405126942
 GameObject:
@@ -2366,6 +2367,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1957972017609620946}
     m_Modifications:
+    - target: {fileID: 98364364177577381, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 98364364177577381, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 98364364177577381, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6189746636166446555}
+    - target: {fileID: 98364364177577381, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 98364364177577381, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: buttonpressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 98364364177577381, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PuzzleLightsManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 98364364177577381, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3820223611839340830, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: Transformed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2374,6 +2403,34 @@ PrefabInstance:
       propertyPath: FirstTouched.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6189746635801798805}
+    - target: {fileID: 4943479906214611831, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943479906214611831, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943479906214611831, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6189746636166446555}
+    - target: {fileID: 4943479906214611831, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943479906214611831, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: cambiotriggertrue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943479906214611831, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PuzzleLightsManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943479906214611831, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
+      propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5185421694215536687, guid: b583398ac5d95cc439467373c115a2b4, type: 3}
       propertyPath: m_Name
       value: Button_Prefab
