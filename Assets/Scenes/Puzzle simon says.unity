@@ -191,6 +191,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: Juego simon dice
       objectReference: {fileID: 0}
+    - target: {fileID: 1038139895630190986, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: booloprimirtrue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038139895738469159, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: booloprimirtrue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038139895834375296, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: booloprimirtrue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038139896759336608, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: booloprimirtrue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038139897302622647, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: booloprimirtrue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726838266830962, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726838266830962, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726838797549413, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726838797549413, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726839448684376, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726839448684376, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726839781911122, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726839781911122, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726839825470965, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453726839825470965, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9144055522622406922, guid: 0d8890ce71d53c045906ab5484c9a112, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -380,7 +440,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -0.991, z: 0}
 --- !u!1 &2003950742
 GameObject:
