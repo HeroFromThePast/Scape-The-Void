@@ -26,6 +26,7 @@ public class buttonpresscolors : MonoBehaviour
                 simon.indicatorscero();
                 simon.GenerateSequence();
                 StartCoroutine(simon.PlaySequence());
+                simon.PlaySequencePressed(buttonIndex);
             }
             else
             {
