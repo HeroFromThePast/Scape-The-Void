@@ -1092,6 +1092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   simon: {fileID: 5400645484304569740}
   buttonIndex: 1
+  pressed: 0
 --- !u!82 &5400645483760081640
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1652,6 +1653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   simon: {fileID: 5400645484304569740}
   buttonIndex: 4
+  pressed: 0
 --- !u!1001 &5400645484583485431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2084,6 +2086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   simon: {fileID: 5400645484304569740}
   buttonIndex: 2
+  pressed: 0
 --- !u!82 &5400645484724976495
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2589,6 +2592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   simon: {fileID: 5400645484304569740}
   buttonIndex: 3
+  pressed: 0
 --- !u!82 &5400645485157905624
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3144,6 +3148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   simon: {fileID: 5400645484304569740}
   buttonIndex: 0
+  pressed: 0
 --- !u!82 &5400645484567620341
 AudioSource:
   m_ObjectHideFlags: 0
