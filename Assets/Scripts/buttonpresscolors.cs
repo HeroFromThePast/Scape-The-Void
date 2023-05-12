@@ -26,12 +26,12 @@ public class buttonpresscolors : MonoBehaviour
                 simon.indicatorscero();
                 simon.GenerateSequence();
                 StartCoroutine(simon.PlaySequence());
-                simon.PlaySequencePressed(buttonIndex);
+                StartCoroutine(simon.PlaySequencePressed(buttonIndex));
             }
             else
             {
                 simon.checkbutton(buttonIndex);
-                simon.PlaySequencePressed(buttonIndex);
+                StartCoroutine(simon.PlaySequencePressed(buttonIndex));
             }
         }
         pressed = false;

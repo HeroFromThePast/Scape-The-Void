@@ -419,7 +419,14 @@ public bool oprimirbool=false;
 
     public void indicatorscero()
     {
+        sequenceLength = primarysecuence;
         indicatorsnumber = 0;
+        for (int i = 0; i < indicators.transform.childCount; i++)
+        {
+            indicators.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            indicators.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
+        }
+
     }
 
     
