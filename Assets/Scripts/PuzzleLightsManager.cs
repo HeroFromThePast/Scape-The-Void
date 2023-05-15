@@ -22,7 +22,7 @@ public class PuzzleLightsManager : MonoBehaviour
     private bool esVerde=false;
     private bool cambiobool = false;
     public bool trigger=true;
-    private bool ganar=false;
+   public bool ganar=false;
     bool cicle3 = true;
     bool cicle3win = false;
     public float velocidadParte3;

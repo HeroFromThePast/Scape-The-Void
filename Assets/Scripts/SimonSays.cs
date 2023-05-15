@@ -25,7 +25,7 @@ public class SimonSays : MonoBehaviour
     private Color colorYellowLit;
     private Color colorWhitelit;
  public bool acabar=false;
-    private bool ganar = false;
+    public bool ganar = false;
 public bool oprimirbool=false;
     private int Nivelactual;
     int actualnumber;
