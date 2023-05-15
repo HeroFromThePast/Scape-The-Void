@@ -25,7 +25,7 @@ public class SimonSays : MonoBehaviour
     private Color colorYellowLit;
     private Color colorWhitelit;
  public bool acabar=false;
-
+    private bool ganar = false;
 public bool oprimirbool=false;
     private int Nivelactual;
     int actualnumber;
@@ -231,6 +231,7 @@ public bool oprimirbool=false;
     public void Ganaste()
     {
         Debug.Log("Ganaste");
+        ganar = true;
     }
 
     public void GenerateSequence()
