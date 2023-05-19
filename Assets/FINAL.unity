@@ -5488,9 +5488,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 415124, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 3}
   m_PrefabInstance: {fileID: 334989130}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &334989132 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 115324, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 3}
+--- !u!95 &334989134 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9546954, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 3}
   m_PrefabInstance: {fileID: 334989130}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &335635974
@@ -10760,6 +10760,11 @@ Transform:
 --- !u!1 &656216198 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 115324, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 3}
+  m_PrefabInstance: {fileID: 656216196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &656216200 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9546954, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 3}
   m_PrefabInstance: {fileID: 656216196}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &656694960
@@ -19316,6 +19321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animDoor1: {fileID: 448291003}
+  animDoor2: {fileID: 656216200}
+  animDoor3: {fileID: 334989134}
   simonSaysScript: {fileID: 1479328513}
   lightsPuzzle: {fileID: 1535952982}
   ConnectedBateries:
@@ -24699,9 +24706,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
       propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 334989132}
+      objectReference: {fileID: 1272451511}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 656216198}
     - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
       propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -24709,18 +24736,54 @@ PrefabInstance:
     - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
       propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1272451511}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
       objectReference: {fileID: 656216198}
     - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
       propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 656216198}
     - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
       propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: OpenDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
       propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onHitByRaycast.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796107508399068474, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
+      propertyPath: onRaycastLeave.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1796107508722906273, guid: 5fffcb77b41a1d64597deeec067f65f2, type: 3}
       propertyPath: m_StaticEditorFlags

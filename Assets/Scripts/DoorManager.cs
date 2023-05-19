@@ -6,6 +6,8 @@ using UnityEngine;
 public class DoorManager : MonoBehaviour
 {
     [SerializeField] Animator animDoor1;
+    [SerializeField] Animator animDoor2;
+    [SerializeField] Animator animDoor3;
 
     [SerializeField] SimonSays simonSaysScript;
 
@@ -29,6 +31,18 @@ public class DoorManager : MonoBehaviour
     public void FitWheel()
     {
         wheels++;
+    }
+
+    public void OpenDoor()
+    {
+        animDoor2.SetBool("Ready", true);
+        animDoor3.SetBool("Ready", true);
+    }
+
+    public void CloseDoor()
+    {
+        animDoor2.SetBool("Ready", false);
+        animDoor3.SetBool("Ready", false);
     }
 
     private void Update()
