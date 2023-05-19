@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DoorManager : MonoBehaviour
@@ -15,6 +16,11 @@ public class DoorManager : MonoBehaviour
 
     [SerializeField] UnityEvent ConnectedBateries;
     [SerializeField] UnityEvent LaserBUGFIX;
+    [SerializeField] UnityEvent WheelsReady;
+
+    bool doneBat = false;
+    bool doneWheel = false;
+
 
 
 
@@ -48,6 +54,11 @@ public class DoorManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene("FINAL");
+        }
+
         if (simonSaysScript.ganar == true && lightsPuzzle.ganar == true)
         {
             animDoor1.SetBool("Ready", true);
@@ -55,12 +66,23 @@ public class DoorManager : MonoBehaviour
 
         if (bateries == 3)
         {
-            ConnectedBateries.Invoke();
+            if (doneBat == false)
+            {
+                ConnectedBateries.Invoke();
+                doneBat = true;
+            }
+
         }
+
 
         if (wheels == 4)
         {
-            wheelsReady = true;
+            if (doneWheel == false)
+            {
+                WheelsReady.Invoke();
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAA completado");
+                doneWheel = true;
+            }
         }
 
     }
