@@ -6,33 +6,43 @@ public class buttonpresscolors : MonoBehaviour
 {
     public SimonSays simon;
     public int buttonIndex;
+   public bool pressed=true;
     // Start is called before the first frame update
+
+    private void Update()
+    {
+       
+    }
+
     public void buttonPressed()
 
     {
-        if (simon.acabar == false)
+        if (pressed == true)
         {
+          
             if (buttonIndex == 4)
             {
                 simon.puntoscero();
                 simon.indicatorscero();
                 simon.GenerateSequence();
                 StartCoroutine(simon.PlaySequence());
+                StartCoroutine(simon.PlaySequencePressed(buttonIndex));
             }
             else
             {
                 simon.checkbutton(buttonIndex);
-                simon.PlaySequencePressed(buttonIndex);
+                StartCoroutine(simon.PlaySequencePressed(buttonIndex));
             }
         }
+        pressed = false;
     }
 
     public void booloprimirfalse()
     {
-        simon.oprimirbool = false;
+        pressed = false;
     }
     public void booloprimirtrue()
     {
-        simon.oprimirbool = true;
+        pressed = true;
     }
 }

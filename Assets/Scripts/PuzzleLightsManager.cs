@@ -19,9 +19,10 @@ public class PuzzleLightsManager : MonoBehaviour
     bool cicle2 = true;
     bool cicle2win = false;
     public float velocidadParte2;
-
+    private bool esVerde=false;
     private bool cambiobool = false;
-
+    public bool trigger=true;
+   public bool ganar=false;
     bool cicle3 = true;
     bool cicle3win = false;
     public float velocidadParte3;
@@ -181,24 +182,24 @@ public class PuzzleLightsManager : MonoBehaviour
         {
             if (puntosGanados == 0)
             {
-                if ((tiempo >= velocidadParte1 * 9 || tiempo <= velocidadParte1 * 10.5)|| (tiempo >= velocidadParte1 *21 || tiempo<=velocidadParte1 * 22.5))
+                if ((tiempo >= velocidadParte1 * 8 && tiempo <= velocidadParte1 * 10.5) || (tiempo >= velocidadParte1 * 20 && tiempo <= velocidadParte1 * 23))
                 {
                     cicle1win = true;
-                   
+
                 }
             }
             if (puntosGanados == 1)
             {
-                if ((tiempo >= velocidadParte2 * 11 || tiempo <= velocidadParte1 * 12.5)|| (tiempo >= velocidadParte2 * 19 || tiempo <= velocidadParte2 * 21.5))
+                if ((tiempo >= velocidadParte2 * 10 && tiempo <= velocidadParte2 * 18) || (tiempo >= velocidadParte2 * 18 && tiempo <= velocidadParte2 * 21))
                 {
                     cicle2win = true;
-                  
+
                 }
             }
 
             if (puntosGanados == 2)
             {
-                if ((tiempo >= velocidadParte3 * 13 || tiempo <= velocidadParte1 * 14.5) || (tiempo >= velocidadParte3 * 23 || tiempo <= velocidadParte3 * 24.5))
+                if ((tiempo >= velocidadParte3 * 12 && tiempo <= velocidadParte3 * 15) || (tiempo >= velocidadParte3 * 22 && tiempo <= velocidadParte3 * 25))
                 {
                     cicle3win = true;
 
@@ -212,39 +213,47 @@ public class PuzzleLightsManager : MonoBehaviour
 
     public void buttonpressed()
     {
-        if (cambiobool == false)
+        if (trigger == true)
         {
-            if (puntosGanados == 0)
-            {
-                if ((tiempo >= velocidadParte1 * 9 || tiempo <= velocidadParte1 * 10.5) || (tiempo >= velocidadParte1 * 21 || tiempo <= velocidadParte1 * 22.5))
+            trigger = false;
+           
+                if (puntosGanados == 0)
                 {
-                    cicle1win = true;
+                    if (esVerde==true)
+                    {
+                        cicle1win = true;
 
+                    }
                 }
-            }
-            if (puntosGanados == 1)
-            {
-                if ((tiempo >= velocidadParte2 * 11 || tiempo <= velocidadParte1 * 12.5) || (tiempo >= velocidadParte2 * 19 || tiempo <= velocidadParte2 * 21.5))
+                if (puntosGanados == 1)
                 {
-                    cicle2win = true;
+                    if ((esVerde == true))
+                    {
+                        cicle2win = true;
 
+                    }
                 }
-            }
 
-            if (puntosGanados == 2)
-            {
-                if ((tiempo >= velocidadParte3 * 13 || tiempo <= velocidadParte1 * 14.5) || (tiempo >= velocidadParte3 * 23 || tiempo <= velocidadParte3 * 24.5))
+                if (puntosGanados == 2)
                 {
-                    cicle3win = true;
+                    if (esVerde == true)
+                    {
+                        cicle3win = true;
 
+                    }
                 }
-            }
+            
         }
     }
 
+    public void cambiotriggertrue()
+    {
+        trigger = true;
+    }
     private void Ganaste()
     {
         Debug.Log("Ganaste");
+        ganar = true;
     }
 
     public IEnumerator parte1cicle()
@@ -254,8 +263,9 @@ public class PuzzleLightsManager : MonoBehaviour
         bool cambio = true;
         for (int i = 0; i < parte1.transform.childCount &&  cambio==true; i++)
         {
-            if (i == 3)
+            if (parte1.transform.GetChild(i).tag=="verde")
             {
+                esVerde = true;
                 yield return new WaitForSeconds(velocidadParte1);
                 parte1.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 parte1.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
@@ -291,10 +301,12 @@ public class PuzzleLightsManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         for (int i = parte1.transform.childCount-1; i >= 0; i--)
         {
+
             yield return new WaitForSeconds(velocidadParte1);
             parte1.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 parte1.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
-                yield return new WaitForSeconds(velocidadParte1);
+            esVerde = false;
+            yield return new WaitForSeconds(velocidadParte1);
             
         }
         cicle1 = true;
@@ -312,11 +324,13 @@ public class PuzzleLightsManager : MonoBehaviour
         bool cambio = true;
         for (int i = 0; i < parte2.transform.childCount && cambio == true; i++)
         {
-            if (i == 4)
+            if (parte2.transform.GetChild(i).tag == "verde")
             {
+                
                 yield return new WaitForSeconds(velocidadParte2);
                 parte2.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 parte2.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
+                esVerde = true;
 
 
                 yield return new WaitForSeconds(velocidadParte2);
@@ -356,6 +370,7 @@ public class PuzzleLightsManager : MonoBehaviour
             yield return new WaitForSeconds(velocidadParte2);
             parte2.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             parte2.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
+            esVerde = false;
             yield return new WaitForSeconds(velocidadParte2);
 
         }
@@ -376,8 +391,9 @@ public class PuzzleLightsManager : MonoBehaviour
         bool cambio = true;
         for (int i = 0; i < parte3.transform.childCount && cambio == true; i++)
         {
-            if (i == 5)
+            if (parte3.transform.GetChild(i).tag == "verde")
             {
+                esVerde = true;
                 yield return new WaitForSeconds(velocidadParte3);
                 parte3.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 parte3.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
@@ -418,6 +434,7 @@ public class PuzzleLightsManager : MonoBehaviour
             yield return new WaitForSeconds(velocidadParte3);
             parte3.transform.GetChild(i).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             parte3.transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
+            esVerde = false;
             yield return new WaitForSeconds(velocidadParte3);
 
         }
