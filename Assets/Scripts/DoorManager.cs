@@ -14,6 +14,7 @@ public class DoorManager : MonoBehaviour
     [SerializeField] PuzzleLightsManager lightsPuzzle;
 
     [SerializeField] UnityEvent ConnectedBateries;
+    [SerializeField] UnityEvent LaserBUGFIX;
 
 
 
