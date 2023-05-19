@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class DoorManager : MonoBehaviour
@@ -9,6 +10,10 @@ public class DoorManager : MonoBehaviour
     [SerializeField] SimonSays simonSaysScript;
 
     [SerializeField] PuzzleLightsManager lightsPuzzle;
+
+    [SerializeField] UnityEvent ConnectedBateries;
+
+
 
     public int bateries = 0;
     bool bateriesReady = false;
@@ -35,7 +40,7 @@ public class DoorManager : MonoBehaviour
 
         if (bateries == 3)
         {
-            bateriesReady = true;
+            ConnectedBateries.Invoke();
         }
 
         if (wheels == 4)
