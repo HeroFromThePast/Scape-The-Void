@@ -16572,6 +16572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactions.AngularTransformDrive_Cylinder (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3611227020286734278, guid: 7b70e3f17a9ff0a49af8763d4e3d4186, type: 3}
+      propertyPath: snapToStepOnRelease
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5043338671783791728, guid: 7b70e3f17a9ff0a49af8763d4e3d4186, type: 3}
       propertyPath: m_RootOrder
       value: 103
@@ -32398,6 +32402,14 @@ PrefabInstance:
     - target: {fileID: 2450174330239116467, guid: 7b70e3f17a9ff0a49af8763d4e3d4186, type: 3}
       propertyPath: m_Name
       value: Interactions.AngularTransformDrive_Cylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611227020286734278, guid: 7b70e3f17a9ff0a49af8763d4e3d4186, type: 3}
+      propertyPath: driveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611227020286734278, guid: 7b70e3f17a9ff0a49af8763d4e3d4186, type: 3}
+      propertyPath: snapToStepOnRelease
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5043338671783791728, guid: 7b70e3f17a9ff0a49af8763d4e3d4186, type: 3}
       propertyPath: m_RootOrder
