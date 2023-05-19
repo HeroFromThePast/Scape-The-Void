@@ -8,6 +8,8 @@ public class DoorManager : MonoBehaviour
 
     [SerializeField] SimonSays simonSaysScript;
 
+    [SerializeField] PuzzleLightsManager lightsPuzzle;
+
     public int bateries = 0;
     bool bateriesReady = false;
 
@@ -26,9 +28,9 @@ public class DoorManager : MonoBehaviour
 
     private void Update()
     {
-        if (simonSaysScript.ganar == true)
+        if (simonSaysScript.ganar == true && lightsPuzzle.ganar == true)
         {
-            animDoor1.SetBool("Completed", true);
+            animDoor1.SetBool("Ready", true);
         }
 
         if (bateries == 3)
